@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
- import NavBar from './navbar';
- import ShoppingCart from './shoppingCart';
- import { Routes, Route, Link } from "react-router-dom";
+import NavBar from './navbar';
+import ShoppingCart from './shoppingCart';
+import { Routes, Route, Link } from "react-router-dom";
 import Home  from './home';
 import Contact from './contact';
 import About from './about';
@@ -36,7 +36,6 @@ class App extends React.Component {
             <div className="container navbar-expand-lg">              
             <Routes>
                 <Route path="/shoppingCart" 
-                render = {props=>( {...props})}
                 element={<ShoppingCart 
                     products ={this.state.products}
                     reset ={this.reset} 
@@ -46,7 +45,7 @@ class App extends React.Component {
                 <Route path="/about" element={<About />} />
                 <Route path="/contact" element={<Contact />} />
                 <Route path="/" element={<Home/>} />
-                <Route path="/productInfo" element={<ProductInfo/>}/>
+                <Route path="/productInfo/:arr"  element={<ProductInfo products={this.state.products}/>}/>
             </Routes>
             </div>
         </React.Fragment>

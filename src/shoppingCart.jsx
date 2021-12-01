@@ -5,7 +5,6 @@ class ShoppingCart extends Component{
         render(){
         return(
             <React.Fragment>
-                
                 <h1>Shopping Cart</h1>
                 <button className='btn btn-sm btn-secondary' onClick={this.props.reset}> reset</button>
                 {this.props.products.map(product =>{
