@@ -6,6 +6,7 @@ import Home  from './home';
 import Contact from './contact';
 import About from './about';
 import ProductInfo from './productInfo';
+import NotFound from './404';
 class App extends React.Component {
     state={
         products:[{id:1, name:'burger',count:0 },
@@ -46,6 +47,7 @@ class App extends React.Component {
                 <Route path="/contact" element={<Contact />} />
                 <Route path="/" element={<Home/>} />
                 <Route path="/productInfo/:arr"  element={<ProductInfo products={this.state.products}/>}/>
+                <Route path="*"  element={<NotFound/>}/>
             </Routes>
             </div>
         </React.Fragment>

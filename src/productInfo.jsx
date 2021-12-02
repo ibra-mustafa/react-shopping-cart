@@ -2,20 +2,16 @@ import React, { Component } from 'react';
 import {useParams } from 'react-router';
 const ProductInfo = (props) => {
     let{arr} = useParams()
-    console.log(props.products.filter((x)=>{
-        if(x.id === Object.Number(arr)){
+    // console.log(props.products[0].name, arr)
+    let pr = props.products.filter((x)=>{
+        if( x.id === parseInt(arr) )
             return x
-        }
-    }))
-    // let pr = props.products[arr].filter((x)=>{
-    //     if(x.id === props.products[arr].id){
-    //         return x
-    //     }
-    // })
+        
+    })
     return (
     <React.Fragment>
-    <h1>Info of:  </h1>
-    <h1>quantity: </h1>
+        <h1>Info of: {pr[0].name} </h1>
+        <h1>quantity: {pr[0].count} </h1>
     </React.Fragment>
     );
 }
