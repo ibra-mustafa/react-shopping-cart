@@ -1,10 +1,6 @@
 import React from "react";
 import { Link } from 'react-router-dom';
 class Product extends React.Component {
-    // state={
-    //     name:this.props.product.name,
-    //     count:this.props.product.count        
-    // }  
     render() { 
         return( 
          <div>

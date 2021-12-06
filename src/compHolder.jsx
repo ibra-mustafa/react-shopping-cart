@@ -2,15 +2,16 @@ import React, { Component } from 'react';
 import NavBar from './navbar';
 import ShoppingCart from './shoppingCart';
 import { Routes, Route, Link } from "react-router-dom";
-import Home  from './home';
-import Contact from './contact';
-import About from './about';
 import ProductInfo from './productInfo';
 import NotFound from './404';
+import Table from './table';
 class App extends React.Component {
     state={
-        products:[{id:1, name:'burger',count:0 },
-        {id:2, name:'fries',count:3}]
+        products:[
+        {id:1, name:'burger',count:0, price:30,inCart: false },
+        {id:2, name:'fries',count:1, price:20,inCart: false},
+        {id:3, name:'Soda',count:2, price:10,inCart: false}
+    ]
     }
     deleteHandler=(product)=>{
         //cloning and editing the state object
@@ -43,13 +44,12 @@ class App extends React.Component {
                     incerment={this.incerment} 
                     deleteHandler={this.deleteHandler}
                 />}/>
-                <Route path="/about" element={<About />} />
-                <Route path="/contact" element={<Contact />} />
-                <Route path="/" element={<Home/>} />
                 <Route path="/productInfo/:arr"  element={<ProductInfo products={this.state.products}/>}/>
                 <Route path="*"  element={<NotFound/>}/>
+                <Route path="/table"  element={<Table products={this.state.products}/>}/>
             </Routes>
             </div>
+
         </React.Fragment>
             
         );

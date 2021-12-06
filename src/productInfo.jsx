@@ -1,5 +1,5 @@
 import React from 'react';
-import {Navigate, useNavigate, useParams } from 'react-router';
+import {useNavigate, useParams } from 'react-router';
 const ProductInfo = (props) => {
     let{arr} = useParams()
     // console.log(props.products[0].name, arr)
