@@ -5,6 +5,7 @@ import { Routes, Route, Link } from "react-router-dom";
 import ProductInfo from './productInfo';
 import NotFound from './404';
 import Table from './table';
+import Cart from './cart';
 class App extends React.Component {
     state={
         products:[
@@ -13,6 +14,15 @@ class App extends React.Component {
         {id:3, name:'Soda',count:2, price:10,inCart: false}
     ]
     }
+    
+    handleCart = (product)=>{
+        let products= [...this.state.products]
+        let index= this.state.products.indexOf(product)
+        products[index] = {...products[index]}
+        products[index].inCart=!products[index].inCart
+        this.setState({products})
+      }
+
     deleteHandler=(product)=>{
         //cloning and editing the state object
         let products = this.state.products.filter(p => product.id !==  p.id )
@@ -42,14 +52,13 @@ class App extends React.Component {
                     products ={this.state.products}
                     reset ={this.reset} 
                     incerment={this.incerment} 
-                    deleteHandler={this.deleteHandler}
+                    deleteHandler={this.handleCart}
                 />}/>
                 <Route path="/productInfo/:arr"  element={<ProductInfo products={this.state.products}/>}/>
                 <Route path="*"  element={<NotFound/>}/>
-                <Route path="/table"  element={<Table products={this.state.products}/>}/>
+                <Route path="/table"  element={<Table products={this.state.products} handleCart={this.handleCart}/>}/>
             </Routes>
             </div>
-
         </React.Fragment>
             
         );
