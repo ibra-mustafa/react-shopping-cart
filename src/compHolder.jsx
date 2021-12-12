@@ -5,6 +5,7 @@ import { Routes, Route, Link } from "react-router-dom";
 import ProductInfo from './productInfo';
 import NotFound from './404';
 import Table from './table';
+import Login from './login';
 class App extends React.Component {
     state={
         products:[
@@ -56,6 +57,7 @@ class App extends React.Component {
                 <Route path="/productInfo/:arr"  element={<ProductInfo products={this.state.products}/>}/>
                 <Route path="*"  element={<NotFound/>}/>
                 <Route path="/table"  element={<Table products={this.state.products} handleCart={this.handleCart}/>}/>
+                <Route path="/login" element={<Login />}/>
             </Routes>
             </div>
         </React.Fragment>
