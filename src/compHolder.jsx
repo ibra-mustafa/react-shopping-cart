@@ -6,15 +6,18 @@ import ProductInfo from './productInfo';
 import NotFound from './404';
 import Table from './table';
 import Login from './login';
+import axios from 'axios';
+import Admin from './admin';
+import Add from './add';
 class App extends React.Component {
     state={
-        products:[
-        {id:1, name:'burger',count:0, price:30,inCart: false },
-        {id:2, name:'fries',count:0, price:20,inCart: false},
-        {id:3, name:'Soda',count:0, price:10,inCart: false}
-    ]
+        products:[]
     }
-    
+    async componentDidMount(){
+      
+        let {data} = await axios.get('http://localhost:3000/products')
+        this.setState({products: data})
+    }
     handleCart = (product)=>{
         let products= [...this.state.products]
         let index= this.state.products.indexOf(product)
@@ -57,7 +60,9 @@ class App extends React.Component {
                 <Route path="/productInfo/:arr"  element={<ProductInfo products={this.state.products}/>}/>
                 <Route path="*"  element={<NotFound/>}/>
                 <Route path="/table"  element={<Table products={this.state.products} handleCart={this.handleCart}/>}/>
+                <Route path="/admin" element={<Admin products={this.state.products}/>}/>
                 <Route path="/login" element={<Login />}/>
+                <Route path="/add" element={<Add />}/>
             </Routes>
             </div>
         </React.Fragment>

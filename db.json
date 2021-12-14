@@ -1,0 +1,8 @@
+{
+  "products":[
+      {"id":1, "name":"burger","count":0, "price":30,"inCart": false },
+      {"id":2, "name":"fries","count":0, "price":20,"inCart": false},
+      {"id":3, "name":"Soda","count":0, "price":10,"inCart": false},
+      {"id":4, "name":"Water","count":0, "price":3,"inCart": false}
+  ]
+}
