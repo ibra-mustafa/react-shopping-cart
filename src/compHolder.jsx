@@ -60,9 +60,9 @@ class App extends React.Component {
                 <Route path="/productInfo/:arr"  element={<ProductInfo products={this.state.products}/>}/>
                 <Route path="*"  element={<NotFound/>}/>
                 <Route path="/table"  element={<Table products={this.state.products} handleCart={this.handleCart}/>}/>
-                <Route path="/admin" element={<Admin products={this.state.products}/>}/>
+                <Route path="/admin" element={<Admin products={this.state.products} deleteHandler={this.handleCart}/>}/>
                 <Route path="/login" element={<Login />}/>
-                <Route path="/add" element={<Add />}/>
+                <Route path="/add/:id" element={<Add products={this.state.products}/>}/>
             </Routes>
             </div>
         </React.Fragment>

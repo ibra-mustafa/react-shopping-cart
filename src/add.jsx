@@ -1,23 +1,21 @@
-import React, { Component } from 'react';
-class Add extends React.Component {
-    render() { 
-        return (
-        <React.Fragment>
-            <form>
-              <h1>Add </h1>
-             <div className="mb-3">
-               <label htmlFor="exampleInputEmail1" className="form-label">Name</label>
-               <input name="productName"   type="email" className="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"/>
-             </div>
-             <div className="mb-3">
-               <label htmlFor="exampleInputPassword1" className="form-label">Price</label>
-               <input name="Amount"  type="Amount" className="form-control" id="exampleInputPassword1"/>
-             </div>
-             <button type="submit" className="btn btn-primary">Add</button>
-            </form>
-        </React.Fragment>
-);
+import React from 'react';
+import { render } from '@testing-library/react';
+import { useParams, useNavigate } from 'react-router';
+import AddNew from './addNew';
+let Add = (props)=> {
+  let redirect = (e)=>{
+    let navigate = useNavigate
+    return navigate
+  }
+
+
+  let RrenderMe = ()=>{
+    let {id} = useParams()
+    if(id == "new"){
+      return <AddNew redirect ={redirect}/>
     }
+  }
+  return RrenderMe()
 }
  
 export default Add;
