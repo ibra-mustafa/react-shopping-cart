@@ -2,7 +2,7 @@
   "products": [
     {
       "name": "burger",
-      "price": "220",
+      "price": "20",
       "count": 0,
       "inCart": false,
       "id": 1
