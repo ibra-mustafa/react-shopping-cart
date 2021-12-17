@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import axios from 'axios';
 class Admin extends React.Component {
   can = ()=>{
     return(<div className="btn btn-danger"> <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-trash" viewBox="0 0 16 16">
@@ -12,8 +13,8 @@ class Admin extends React.Component {
   <path fillRule="evenodd" d="M15 2a1 1 0 0 0-1-1H2a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V2zM0 2a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V2zm10.096 3.146a.5.5 0 1 1 .707.708L6.707 9.95h2.768a.5.5 0 1 1 0 1H5.5a.5.5 0 0 1-.5-.5V6.475a.5.5 0 1 1 1 0v2.768l4.096-4.097z"/>
 </svg>)
   }
-  new = ()=>{
-    
+  deleteHandler=async(id)=>{
+    await axios.delete("http://localhost:3000/products/" + id)
   }
     render() { 
         return (
@@ -22,7 +23,7 @@ class Admin extends React.Component {
                 Admin
               </h1>              
               <Link to="/add/new">
-              <div className="btn btn-primary" onClick={this.new}>
+              <div className="btn btn-primary">
                   Add
               </div>       
                </Link>  
@@ -41,8 +42,8 @@ class Admin extends React.Component {
                  <tr key= {element.id}>
                     <td>{element.name}</td>
                     <td>{element.price}</td>
-                    <td><Link to={`add/${element.id}`}> {this.edit()}</Link></td>
-                    <td className='click' onClick={()=>this.props.deleteHandler(element)}>{this.can()}</td>
+                    <td><Link to={`/add/${element.id}`}> {this.edit()} </Link></td>
+                    <td className='click' onClick={()=>this.deleteHandler(element.id)}>{this.can()}</td>
                  </tr>
             )
         })

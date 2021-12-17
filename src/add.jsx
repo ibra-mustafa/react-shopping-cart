@@ -2,6 +2,7 @@ import React from 'react';
 import { render } from '@testing-library/react';
 import { useParams, useNavigate } from 'react-router';
 import AddNew from './addNew';
+import Editit from './edit';
 let Add = (props)=> {
   let redirect = (e)=>{
     let navigate = useNavigate
@@ -12,7 +13,9 @@ let Add = (props)=> {
   let RrenderMe = ()=>{
     let {id} = useParams()
     if(id == "new"){
-      return <AddNew redirect ={redirect}/>
+      return <AddNew redirect={redirect}/>
+    }else{
+      return <Editit id={id}/>
     }
   }
   return RrenderMe()

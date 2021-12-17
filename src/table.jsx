@@ -14,9 +14,9 @@ let Table = (props) => {
   <tbody>
     {props.products.map(element => {
               return(
-              <tr>
-                     <th scope="row">{element.id}</th>
-                     <td>{element.name}</td>
+              <tr key={element.id}>
+                     <th scope="row">{element.name}</th>
+                     <td>{element.price}</td>
                      <td> <Cart click={props.handleCart} product={element}/> </td>
               </tr>
                     )})}

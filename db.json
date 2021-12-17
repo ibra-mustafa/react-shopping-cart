@@ -1,11 +1,11 @@
 {
   "products": [
     {
-      "id": 1,
       "name": "burger",
+      "price": "220",
       "count": 0,
-      "price": 30,
-      "inCart": false
+      "inCart": false,
+      "id": 1
     },
     {
       "id": 2,
@@ -27,6 +27,41 @@
       "count": 0,
       "price": 3,
       "inCart": false
+    },
+    {
+      "name": "Large burger",
+      "price": "40",
+      "count": 0,
+      "inCart": false,
+      "id": 5
+    },
+    {
+      "name": "new",
+      "price": "13",
+      "count": 0,
+      "inCart": false,
+      "id": 6
+    },
+    {
+      "name": "added",
+      "price": "2",
+      "count": 0,
+      "inCart": false,
+      "id": 14
+    },
+    {
+      "name": "added",
+      "price": "3",
+      "count": 0,
+      "inCart": false,
+      "id": 15
+    },
+    {
+      "name": "add",
+      "price": "13",
+      "count": 0,
+      "inCart": false,
+      "id": 16
     }
   ]
 }
